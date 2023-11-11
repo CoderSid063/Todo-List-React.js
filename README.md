@@ -1,1 +1,1 @@
-# This Todo List Design Using React.Js <br/>
+# This Todo List is Design Using React.Js <br/>
