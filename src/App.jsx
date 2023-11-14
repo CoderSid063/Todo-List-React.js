@@ -20,11 +20,14 @@ function App() {
   ];
 
   return (
+    <>
     <center className="todo-container">
       <AppName />
       <AddTodo />
       <TodoItems todoList={todoItems}></TodoItems>
     </center>
+    </>
+    
   );
 }
 
