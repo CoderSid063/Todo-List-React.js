@@ -5,7 +5,7 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const todoItems = [
+  const initialTodoItems = [
     {
       name: "Buy Milk",
       dueDate: "4/11/2023",
@@ -20,8 +20,11 @@ function App() {
     },
   ];
 
-  const [todoItems,setTodoItems] =useState()
+  const [todoItems,setTodoItems] =useState(initialTodoItems)
+
   const handleNewItem =(itemName,itemDueDate)=>{
+    const newTodoItems = [...todoItems,{name:itemName,dueDate:itemDueDate}]
+    setTodoItems(newTodoItems)
 
   }
 
