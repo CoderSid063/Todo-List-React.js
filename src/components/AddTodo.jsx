@@ -1,20 +1,18 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { MdOutlineAddComment } from "react-icons/md";
-export function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState("");
-  const [dueDate, setDueDate] = useState("");
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-  const handleDateChange = (event) => {
-    setDueDate(event.target.value);
-  };
+export function AddTodo({ onNewItem }) {
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
+
   const addButtonOnClicked = (event) => {
     event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
+
     onNewItem(todoName, dueDate);
-    setTodoName("");
-    setDueDate("");
   };
 
   return (
@@ -23,18 +21,15 @@ export function AddTodo({ onNewItem }) {
         <div className="col-6">
           <input
             type="text"
-            value={todoName}
+            ref={todoNameElement}
             placeholder="Enter Todo Here"
-            onChange={handleNameChange}
           />
         </div>
         <div className="col-4">
-          <input type="date"  value={dueDate} onChange={handleDateChange} />
+          <input type="date" ref={dueDateElement} />
         </div>
         <div className="col-2">
-          <button
-            className="btn btn-success My-btn"
-          >
+          <button className="btn btn-success My-btn">
             <MdOutlineAddComment />
           </button>
         </div>
