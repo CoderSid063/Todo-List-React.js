@@ -21,7 +21,7 @@ function App() {
   ];
 
   const [todoItems,setTodoItems] =useState()
-  const handleNewItem =()=>{
+  const handleNewItem =(itemName,itemDueDate)=>{
 
   }
 
