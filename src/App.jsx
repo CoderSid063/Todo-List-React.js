@@ -15,28 +15,29 @@ function App() {
       dueDate: "4/11/2023",
     },
     {
-      name : "Return to Home",
-      dueDate : "4/11/2023",
+      name: "Return to Home",
+      dueDate: "4/11/2023",
     },
   ];
 
-  const [todoItems,setTodoItems] =useState(initialTodoItems)
+  const [todoItems, setTodoItems] = useState(initialTodoItems);
 
-  const handleNewItem =(itemName,itemDueDate)=>{
-    const newTodoItems = [...todoItems,{name:itemName,dueDate:itemDueDate}]
-    setTodoItems(newTodoItems)
-
-  }
+  const handleNewItem = (itemName, itemDueDate) => {
+    const newTodoItems = [
+      ...todoItems,
+      { name: itemName, dueDate: itemDueDate },
+    ];
+    setTodoItems(newTodoItems);
+  };
 
   return (
     <>
-    <center className="todo-container">
-      <AppName />
-      <AddTodo onNewItem={handleNewItem} />
-      <TodoItems todoList={todoItems}></TodoItems>
-    </center>
+      <center className="todo-container">
+        <AppName />
+        <AddTodo onNewItem={handleNewItem} />
+        <TodoItems todoList={todoItems}></TodoItems>
+      </center>
     </>
-    
   );
 }
 
