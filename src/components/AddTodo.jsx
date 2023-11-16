@@ -10,7 +10,8 @@ export function AddTodo({ onNewItem }) {
   const handleDateChange = (event) => {
     setDueDate(event.target.value);
   };
-  const addButtonOnClicked = () => {
+  const addButtonOnClicked = (event) => {
+    event.preventDefault();
     onNewItem(todoName, dueDate);
     setTodoName("");
     setDueDate("");
@@ -18,7 +19,7 @@ export function AddTodo({ onNewItem }) {
 
   return (
     <div className="container text-center">
-      <div className="row My-row">
+      <form className="row My-row" onSubmit={addButtonOnClicked}>
         <div className="col-6">
           <input
             type="text"
@@ -32,14 +33,12 @@ export function AddTodo({ onNewItem }) {
         </div>
         <div className="col-2">
           <button
-            type="button"
             className="btn btn-success My-btn"
-            onClick={addButtonOnClicked}
           >
             <MdOutlineAddComment />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
