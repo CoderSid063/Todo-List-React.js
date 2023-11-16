@@ -2,6 +2,7 @@ import { AppName } from "./components/AppName";
 import { AddTodo } from "./components/AddTodo";
 import TodoItems from "./components/TodoItems";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   const todoItems = [
@@ -19,11 +20,16 @@ function App() {
     },
   ];
 
+  const [todoItems,setTodoItems] =useState()
+  const handleNewItem =()=>{
+
+  }
+
   return (
     <>
     <center className="todo-container">
       <AppName />
-      <AddTodo />
+      <AddTodo onNewItem={handleNewItem} />
       <TodoItems todoList={todoItems}></TodoItems>
     </center>
     </>
