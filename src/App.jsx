@@ -23,15 +23,12 @@ function App() {
   };
 
   return (
-    <TodoItemsContext.Provider>
+    <TodoItemsContext.Provider value={todoItems}>
       <center className="todo-container">
         <AppName />
         <AddTodo onNewItem={handleNewItem} />
-        <WelcomeMessege todoItems={todoItems}></WelcomeMessege>
-        <TodoItems
-          todoList={todoItems}
-          onClickDelete={handleDeleteItem}
-        ></TodoItems>
+        <WelcomeMessege></WelcomeMessege>
+        <TodoItems onClickDelete={handleDeleteItem}></TodoItems>
       </center>
     </TodoItemsContext.Provider>
   );
