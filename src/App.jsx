@@ -4,6 +4,7 @@ import TodoItems from "./components/TodoItems";
 import WelcomeMessege from "./components/WelcomeMessage";
 import "./App.css";
 import { useState } from "react";
+import { TodoItemsContext } from "./store/TodoItemStore";
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
@@ -22,17 +23,17 @@ function App() {
   };
 
   return (
-    <>
+    <TodoItemsContext.Provider>
       <center className="todo-container">
         <AppName />
         <AddTodo onNewItem={handleNewItem} />
-         <WelcomeMessege todoItems ={todoItems}></WelcomeMessege>
+        <WelcomeMessege todoItems={todoItems}></WelcomeMessege>
         <TodoItems
           todoList={todoItems}
           onClickDelete={handleDeleteItem}
         ></TodoItems>
       </center>
-    </>
+    </TodoItemsContext.Provider>
   );
 }
 
