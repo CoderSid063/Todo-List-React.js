@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { MdOutlineAddComment } from "react-icons/md";
 import { TodoItemsContext } from "../store/TodoItemStore";
 
-export function AddTodo({ onNewItem }) {
+export function AddTodo() {
   const { addNewItem } = useContext(TodoItemsContext);
   const todoNameElement = useRef();
   const dueDateElement = useRef();
