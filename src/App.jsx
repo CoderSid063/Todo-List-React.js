@@ -34,7 +34,7 @@ function App() {
         <AppName />
         <AddTodo />
         <WelcomeMessege></WelcomeMessege>
-        <TodoItems ></TodoItems>
+        <TodoItems></TodoItems>
       </center>
     </TodoItemsContext.Provider>
   );

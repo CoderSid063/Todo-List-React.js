@@ -3,8 +3,8 @@ import TodoItem from "./TodoItem";
 import { TodoItemsContext } from "../store/TodoItemStore";
 import { useContext } from "react";
 const TodoItems = () => {
-  const {todoItems,deleteItem} = useContext(TodoItemsContext);
-  
+  const { todoItems } = useContext(TodoItemsContext);
+
   return (
     <>
       <div className={styles["items-container"]}>
@@ -13,7 +13,6 @@ const TodoItems = () => {
             key={item.name}
             TodoName={item.name}
             TodoDate={item.dueDate}
-            clickToDelete={deleteItem}
           ></TodoItem>
         ))}
       </div>
