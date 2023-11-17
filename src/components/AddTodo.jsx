@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useRef } from "react";
 import { MdOutlineAddComment } from "react-icons/md";
+import { TodoItemsContext } from "../store/TodoItemStore";
 
 export function AddTodo({ onNewItem }) {
+  const {addNewItem} = useContext(TodoItemsContext)
   const todoNameElement = useRef();
   const dueDateElement = useRef();
 
@@ -12,7 +15,7 @@ export function AddTodo({ onNewItem }) {
     todoNameElement.current.value = "";
     dueDateElement.current.value = "";
 
-    onNewItem(todoName, dueDate);
+    addNewItem(todoName, dueDate);
   };
 
   return (

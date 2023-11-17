@@ -9,7 +9,7 @@ import { TodoItemsContext } from "./store/TodoItemStore";
 function App() {
   const [todoItems, setTodoItems] = useState([]);
 
-  const handleNewItem = (itemName, itemDueDate) => {
+  const addNewItem = (itemName, itemDueDate) => {
     // use of Sprade Operator
     setTodoItems((currVal) => [
       ...currVal,
@@ -17,18 +17,24 @@ function App() {
     ]);
   };
 
-  const handleDeleteItem = (TodoName) => {
+  const deleteItem = (TodoName) => {
     const newTodoItem = todoItems.filter((items) => items.name !== TodoName);
     setTodoItems(newTodoItem);
   };
 
   return (
-    <TodoItemsContext.Provider value={todoItems}>
+    <TodoItemsContext.Provider
+      value={{
+        todoItems,
+        addNewItem,
+        deleteItem,
+      }}
+    >
       <center className="todo-container">
         <AppName />
-        <AddTodo onNewItem={handleNewItem} />
+        <AddTodo />
         <WelcomeMessege></WelcomeMessege>
-        <TodoItems onClickDelete={handleDeleteItem}></TodoItems>
+        <TodoItems ></TodoItems>
       </center>
     </TodoItemsContext.Provider>
   );
